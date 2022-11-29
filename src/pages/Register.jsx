@@ -9,16 +9,21 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
     
     function handleClick() {
-        setLoading(true);
+        if (email & pass !== ''){
+            setLoading(true);
+        }
+        
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (pass !== confirmPass) {
-            alert("Passwords don't match");
+            alert("Las contraseñas no coinciden");
         } else {
-            // make API call
+            alert("ACCEDIENDO");
+            
         }
+        setLoading(false);
         console.log(email);
     }
 
@@ -36,6 +41,7 @@ export default function Register() {
             <input value={confirmPass} onChange={(e) => setconfirmPass(e.target.value)} type="password" placeholder="********" id="passwordMatch" name="passwordMatch" />
             <button type="submit">
                 <LoadingButtonUnstyled 
+                    disabled
                     size="small"
                     onClick={handleClick}
                     loading={loading}

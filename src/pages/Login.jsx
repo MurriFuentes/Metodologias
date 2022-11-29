@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { usersData } from '../DB/Users'
 import LoadingButtonUnstyled  from '@mui/lab/LoadingButton';
 
 export default function Login() {
@@ -7,14 +8,28 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     
     function handleClick() {
-        setLoading(true);
-        setTimeout('', 5000);
-        window.location.href = "./";
+        if (email & pass !== ''){
+            setLoading(true);
+        }
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        const consult = usersData.find(el=>el.email === email & el.password === pass) ? true : false
+        if (consult === false ){
+            alert("Cuenta no encontrada");
+        } else {
+            const employee = usersData.find(obj => {
+                return obj.email === email;
+              });
+              
+            localStorage.setItem('user', employee.name);
+            localStorage.setItem('usertype', employee.usertype);
+            alert("Cuenta encontrada");
+            window.location.href = "./";
+        }
+        
+        
     }
 
     return (

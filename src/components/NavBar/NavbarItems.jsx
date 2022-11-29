@@ -1,16 +1,16 @@
 export const navItems = [
     {
         id: 1,
-        title: "Iniciar Sesion",
-        path: "./Login",
+        title: "Registrarse",
+        path: "./SigUp",
         cName: "nav-item",
         dName: "a",
     },
     {
         id: 2,
-        title: "Registrase",
-        path: "/SignUp",
+        title: "Registrarse",
+        path: "/",
         cName: "nav-item",
         dName: "a",
-    },,
+    },
 ];

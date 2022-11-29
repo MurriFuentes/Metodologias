@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { navItems } from './NavbarItems';
 import { AdmonDrop } from './Dropdown';
+import NavButton from './NavButton';
 import Logo from "../../images/LOGO-BLANCO.png"
 import * as icons2 from 'react-icons/fa';
 
@@ -34,17 +35,21 @@ export default function Navbar() {
     }, [])
 
     useEffect(() => {
+        if (localStorage.getItem('user') !== ""){
+            setNavOptions(navItems.filter( item => item.id < 4 ) )
+        }else{
             setNavOptions(navItems)
+        }
     }, [])
 
     return (
-        <>
-            <nav id="navbar">
+            <>
+                <nav id="navbar">
                 <Link to="/" className="navbar-logo" onClick={() => setTogglebar(false)}>
                     <img src={"./"+Logo} alt="logo" className="Logo"/>
                 </Link>
                 
-               
+                
                 {!mobile && (
                     <>
                         <ul className="nav-items">
@@ -67,8 +72,9 @@ export default function Navbar() {
                                     </li>
                             ))}
                         </ul>
-                    </>
-                )}
+                        <NavButton />
+                </>
+            )}
 
 
                 {mobile && (
@@ -95,8 +101,7 @@ export default function Navbar() {
                         );
                     })}
                     <div onClick={() => setTogglebar(false)}>
-                        
-                       
+                        <NavButton />
                     </div>
                 </ul>
             </div>
