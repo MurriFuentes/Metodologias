@@ -1,0 +1,131 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none !important;
+}
+
+#navbar{
+    width: 100%;
+    height: 10vh;
+    background: #1b1919;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-logo img{
+    max-width: 100px;
+    height: auto;
+}
+
+.navButton{
+    display: flex;
+    background: tomato;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 18px;
+    transition: 0.3s all ease-out;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
+.navButton:hover{
+    color: rgb(0,212,212);
+    background: white;
+}
+
+.nav-items{
+    width: 60vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    margin-bottom: 0rem;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+.a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+    border-bottom: 6px solid transparent;
+}
+
+.nav-item:hover a{
+    color: rgb(0,212,212);
+    border-bottom-color: whitesmoke;
+}
+
+.toggleButton{
+    width: 60vw;
+    color: white;
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: flex-end;
+}
+
+.toggleButton svg {
+    height: 2rem;
+    transition: 0.3s all ease-out;
+}
+
+.toggleButton:hover{
+    color: rgb(0,212,212);
+    border-bottom-color: rgb(246, 253, 224);
+}
+
+.nav-items-toggled{
+    width: 100%;
+    background: #332f2f;
+    position: fixed;
+    right: -130%;
+    transition: 0.3s all ease-in-out;
+    z-index: 10;
+    margin-top: -1px;
+    border-bottom-left-radius: 4rem;
+    border-top-left-radius: 3rem;
+}
+
+.nav-items-toggled.active{
+    right: 0;
+    z-index: 10;
+}
+.nav-items-toggled :hover{
+    background-color: rgb(61, 61, 75);
+}
+
+.drop-item{
+    list-style: none;
+    width: 100%;
+    height: 3rem;
+}
+
+.drop-item a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+}
+
+.drop-item a:hover{
+    color: rgb(0,212,212);
+}
+
+/*Resolutions*/

@@ -1,0 +1,35 @@
+.Admon-submenu{
+    top: 65px;
+    width: 10rem;
+    position: absolute;
+    list-style: none;
+    text-align: start;
+    padding: 0;
+}
+
+.Admon-submenu li{
+    background-color: rgb(29, 34, 34);
+    cursor: pointer;
+}
+
+.Admon-submenu li a{
+    cursor: pointer;
+    
+    color: white;
+}
+.submenu-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+}
+
+.submenu-item:hover{
+    background-color: rgb(35, 129, 120);
+}
+
+.Admon-submenu.clicked{
+    display: none;
+}
