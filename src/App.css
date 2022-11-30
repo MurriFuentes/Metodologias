@@ -58,3 +58,8 @@ button {
   color: white;
   text-decoration: underline;
 }
+
+ .container-fluid {
+  width: 200%;
+  background-color: whitesmoke;
+ }
