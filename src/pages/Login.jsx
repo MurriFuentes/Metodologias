@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import { usersData } from '../DB/Users'
 import LoadingButtonUnstyled  from '@mui/lab/LoadingButton';
@@ -8,6 +8,13 @@ export default function Login() {
     const [pass, setPass] = useState('');
     const [loading, setLoading] = useState(false);
    
+    useEffect(() => {
+        if (localStorage.getItem('newDataBase') === null){
+            localStorage.setItem('newDataBase', JSON. stringify(usersData));
+        }else{
+            console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newDataBase')));
+        }
+    }, []);
 
     function handleClick() {
         if (email & pass !== ''){
@@ -17,17 +24,20 @@ export default function Login() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        const consult = usersData.find(el=>el.email === email & el.password === pass) ? true : false
+        var newuser = JSON.parse(localStorage.getItem('newDataBase'));
+        const consult = newuser.find(el=>el.email === email & el.password === pass) ? true : false
+
         if (consult === false ){
             alert("Cuenta no encontrada");
         } else {
-            const employee = usersData.find(obj => {
+            const employee = newuser.find(obj => {
                 return obj.email === email;
-              });
-              
+            });
             localStorage.setItem('user', employee.name);
+            localStorage.setItem('userEmail', employee.email);
             localStorage.setItem('usertype', employee.usertype);
-            alert("Cuenta encontrada");
+            localStorage.setItem('userGroups', JSON. stringify(employee.groups));
+            alert("Bienvenido " + localStorage.getItem("user"));
             window.location.href = "./";
         }
         

@@ -35,10 +35,11 @@ export default function Navbar() {
     }, [])
 
     useEffect(() => {
-        if (localStorage.getItem('user') !== ""){
-            setNavOptions(navItems.filter( item => item.id < 5 ) )
-        }else{
+
+        if (localStorage.getItem('user') !== null){
             setNavOptions(navItems)
+        }else{
+            setNavOptions(navItems.filter( item => item.id < 2 ) )
         }
     }, [])
 
@@ -54,7 +55,7 @@ export default function Navbar() {
                     <>
                         <ul className="nav-items">
                             {navOptions.map((item) => (
-                                item.title === "ADMIN" ?
+                                item.title === "Alertas"?
                                 <>
                                     <li 
                                         

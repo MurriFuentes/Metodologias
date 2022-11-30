@@ -1,21 +1,15 @@
 export const AdmonItems = [
     {
         id: 1,
-        title: "CONTACTOS",
+        title: "Crear grupo",
         path: "/Listar",
         dName: "submenu-item",
     },
     {
         id: 2,
-        title: "COTIZACIONES",
+        title: "Entrar a un ingreso",
         path: "/Cotizaciones",
         dName: "submenu-item",
     },
-    {
-        id: 3,
-        title: 'USUARIOS',
-        path: '/Usuarios',
-        dName: "submenu-item",
-    }
   ];
   

@@ -8,7 +8,21 @@ export const navItems = [
     },
     {
         id: 2,
-        title: "About",
+        title: "Grupos",
+        path: "/Grupos",
+        cName: "nav-item",
+        dName: "a",
+    },
+    {
+        id: 3,
+        title: "Amigos",
+        path: "/",
+        cName: "nav-item",
+        dName: "a",
+    },
+    {
+        id: 4,
+        title: "Alertas",
         path: "/",
         cName: "nav-item",
         dName: "a",

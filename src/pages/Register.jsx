@@ -11,6 +11,8 @@ const initialState = {
         usertype: "USER",
         friends: {
         },
+        groups: [
+        ],
   };
 
 export default function Register() {
@@ -19,10 +21,10 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem('newUserData') === null){
-            localStorage.setItem('newUserData', JSON. stringify(usersData));
+        if (localStorage.getItem('newDataBase') === null){
+            localStorage.setItem('newDataBase', JSON. stringify(usersData));
         }else{
-            console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newUserData')));
+            console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newDataBase')));
         }
     }, []);
 
@@ -39,14 +41,14 @@ export default function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        var newuser = JSON.parse(localStorage.getItem('newUserData'));
+        var newuser = JSON.parse(localStorage.getItem('newDataBase'));
         const consult = newuser.find(el=>el.email === formState.email) ? true : false
 
         if (confirmPass === formState.password) {
             if (consult === false ){
                 alert("REGISTRANDO");
                 newuser.push(formState);
-                localStorage.setItem('newUserData', JSON. stringify(newuser));
+                localStorage.setItem('newDataBase', JSON. stringify(newuser));
                 setFormState(initialState);
             } else {
                 alert("El correo ya existe, ingrese otro correo porfavor.");

@@ -1,21 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useEffect ,useState } from 'react';
-import {AdmonItems} from './AdmonItems';
-import {UserItems} from './UserItems';
+import { UserItems } from './UserItems';
 import './Dropdown.css';
 
-export function AdmonDrop () {
+export function AdmonDrop (){
     var [navOptions, setNavOptions] = useState(UserItems) ;
     const [dropdown, setDropdown] = useState(false);
 
     useEffect(() => {
-        var username = window["username"];
-        if (username === "admin"){
-            setNavOptions(AdmonItems);
-        }else{
-            setNavOptions(UserItems);
-        }
-
+        setNavOptions(UserItems);
     }, [])
 
     return (

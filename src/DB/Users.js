@@ -8,6 +8,14 @@ export const usersData= [
         friends: {
             email: "Juan@hotmail.com"
         },
+        groups: [
+            {
+                name: "Familia",
+                members: {
+                    userEmail: "Juan@hotmail.com"
+                }
+            }, 
+        ],
     },
     {
         name: "Juan Manuel Felix Rubio",
@@ -18,5 +26,7 @@ export const usersData= [
         friends: {
             email: "Felix@hotmail.com"
         },
+        groups: [
+        ],
     }
   ];

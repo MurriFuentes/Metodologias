@@ -1,14 +1,15 @@
 export const UserItems = [
     {
         id: 1,
-        title: "COTIZACIONES",
-        path: "/Cotizaciones",
+        title: "Crear grupo",
+        path: "/Listar",
         dName: "submenu-item",
     },
     {
         id: 2,
-        title: 'CLIENTES',
-        path: '/Clientes',
+        title: "Buscar grupo",
+        path: "/Cotizaciones",
         dName: "submenu-item",
-    }
+    },
   ];
+  
