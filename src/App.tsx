@@ -3,7 +3,6 @@ import './css/NavBar.css';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from "./components/NavBar/Navbar";
-import Footer from './components/Footer';
 import PageHome from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -37,7 +36,6 @@ class App extends React.Component {
               <Route path="/SignUp" exact component={Register}></Route>
             </Switch>
           </div>
-          
         </BrowserRouter>
     );
   }

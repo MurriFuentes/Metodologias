@@ -36,7 +36,7 @@ export default function Navbar() {
 
     useEffect(() => {
         if (localStorage.getItem('user') !== ""){
-            setNavOptions(navItems.filter( item => item.id < 4 ) )
+            setNavOptions(navItems.filter( item => item.id < 5 ) )
         }else{
             setNavOptions(navItems)
         }
@@ -54,7 +54,7 @@ export default function Navbar() {
                     <>
                         <ul className="nav-items">
                             {navOptions.map((item) => (
-                                item.title === "ADMON" ?
+                                item.title === "ADMIN" ?
                                 <>
                                     <li 
                                         

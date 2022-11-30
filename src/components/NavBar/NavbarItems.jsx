@@ -1,14 +1,14 @@
 export const navItems = [
     {
         id: 1,
-        title: "Registrarse",
-        path: "/SignUp",
+        title: "Home",
+        path: "/",
         cName: "nav-item",
         dName: "a",
     },
     {
         id: 2,
-        title: "Home",
+        title: "About",
         path: "/",
         cName: "nav-item",
         dName: "a",

@@ -16,7 +16,7 @@
 }
 
 .navbar-logo img{
-    max-width: 100px;
+    max-width: 60px;
     height: auto;
 }
 
@@ -30,6 +30,7 @@
     align-items: center;
     justify-content: center;
     color: whitesmoke;
+    margin-top: 10px;
 }
 .navButton:hover{
     color: rgb(0,212,212);

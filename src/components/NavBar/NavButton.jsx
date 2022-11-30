@@ -13,7 +13,7 @@ export default function NavButton() {
     const handleClick = e => {
         localStorage.removeItem("user")
         localStorage.removeItem("usertype")
-        //redirigir
+        window.location.reload();
     }
     
     const renderLoginButtons = ({isLogged}) => {

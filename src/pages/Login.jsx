@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import { usersData } from '../DB/Users'
 import LoadingButtonUnstyled  from '@mui/lab/LoadingButton';
 
@@ -6,7 +7,8 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [loading, setLoading] = useState(false);
-    
+   
+
     function handleClick() {
         if (email & pass !== ''){
             setLoading(true);
@@ -52,7 +54,7 @@ export default function Login() {
                     </LoadingButtonUnstyled >
                 </button>
             </form>
-            <button className="link-btn">Aun no posees una cuenta? Registrate aqui.</button>
+            <Link to="/SignUp" onClick={handleClick}> <button className="link-btn">Aun no posees una cuenta? Registrate aqui.</button></Link>
         </div>
     )
 }

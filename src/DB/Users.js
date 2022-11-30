@@ -1,6 +1,6 @@
 export const usersData= [
     {
-        name: "Felix",
+        name: "Felix Armenta Guitirrez",
         password: "123",
         email: "Felix@hotmail.com",
         date: "28/11/1998",
@@ -10,7 +10,7 @@ export const usersData= [
         },
     },
     {
-        name: "Juan",
+        name: "Juan Manuel Felix Rubio",
         password: "abc",
         email: "Juan@hotmail.com",
         date: "20/11/1988",

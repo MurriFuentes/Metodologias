@@ -1,30 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
+import { usersData } from '../DB/Users'
 import LoadingButtonUnstyled  from '@mui/lab/LoadingButton';
 
+const initialState = {
+        name: "",
+        password: "",
+        email: "",
+        date: "29/11/2022",
+        usertype: "USER",
+        friends: {
+        },
+  };
+
 export default function Register() {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [formState, setFormState] = useState(initialState);
     const [confirmPass, setconfirmPass] = useState('');
-    const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
-    
-    function handleClick() {
-        if (email & pass !== ''){
-            setLoading(true);
+
+    useEffect(() => {
+        if (localStorage.getItem('newUserData') === null){
+            localStorage.setItem('newUserData', JSON. stringify(usersData));
+        }else{
+            console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newUserData')));
         }
-        
+    }, []);
+
+    function handleClick() {
+        setLoading(true);
     }
+
+    const onChange = (event) => {
+        setFormState((prev) => ({
+          ...prev,
+          [event.target.name]: event.target.value,
+        }));
+      };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (pass !== confirmPass) {
-            alert("Las contraseñas no coinciden");
-        } else {
-            alert("ACCEDIENDO");
+        var newuser = JSON.parse(localStorage.getItem('newUserData'));
+        const consult = newuser.find(el=>el.email === formState.email) ? true : false
+
+        if (confirmPass === formState.password) {
+            if (consult === false ){
+                alert("REGISTRANDO");
+                newuser.push(formState);
+                localStorage.setItem('newUserData', JSON. stringify(newuser));
+                setFormState(initialState);
+            } else {
+                alert("El correo ya existe, ingrese otro correo porfavor.");
+            }
             
+        } else {
+            alert("Las contraseñas no coinciden");
         }
         setLoading(false);
-        console.log(email);
     }
 
     return (
@@ -32,13 +63,13 @@ export default function Register() {
             <h2>Registro</h2>
         <form className="register-form" onSubmit={handleSubmit}>
             <label htmlFor="name">Nombre Completo</label>
-            <input required value={name} onChange={(e) => setName(e.target.value)} type="name" id="name" placeholder="Ejemplo: Juan Perez" name ="name"/>
+            <input required type="name" name="name" value={formState.name} onChange={onChange}  placeholder="Ejemplo: Juan Perez" id="name" />
             <label htmlFor="email">Correo Electronico</label>
-            <input required value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="tucorreo@gmail.com" id="email" name="email" />
+            <input required type="email" name="email" value={formState.email} onChange={onChange} placeholder="tucorreo@gmail.com" id="email" />
             <label htmlFor="password">Contraseña</label>
-            <input required value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-            <label htmlFor="password">Repite contraseña</label>
-            <input value={confirmPass} onChange={(e) => setconfirmPass(e.target.value)} type="password" placeholder="********" id="passwordMatch" name="passwordMatch" />
+            <input required type="password" name="password"value={formState.password} onChange={onChange} placeholder="********" id="password" />
+            <label htmlFor="passwordConfirm">Repite contraseña</label>
+            <input type="password" value={confirmPass} onChange={(e) => setconfirmPass(e.target.value)} placeholder="********" id="passwordMatch" name="passwordMatch" />
             <button type="submit">
                 <LoadingButtonUnstyled 
                     disabled
@@ -51,7 +82,7 @@ export default function Register() {
                 </LoadingButtonUnstyled >
             </button>
         </form>
-        <button className="link-btn">Ya tienes una cuenta? Inicia sesion aqui.</button>
+        <Link to="/Login" onClick={handleClick} ><button className="link-btn">Ya tienes una cuenta? Inicia sesion aqui.</button></Link>
     </div>
     )
 }

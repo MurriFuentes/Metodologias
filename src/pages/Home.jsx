@@ -1,6 +1,3 @@
-import { Link } from 'react-router-dom';
-import * as icons from "react-icons/bs";
-
 export default function Page_Home() {
     return (
         <>
@@ -8,7 +5,6 @@ export default function Page_Home() {
                 
             <h1>PAGIA INICIO</h1>
             </div>
-
         </>
     );
 }
