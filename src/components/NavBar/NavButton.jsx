@@ -13,6 +13,9 @@ export default function NavButton() {
     const handleClick = e => {
         localStorage.removeItem("user")
         localStorage.removeItem("usertype")
+        localStorage.removeItem("userEmail")
+        localStorage.removeItem("userGroups")
+        window.location.href = "./"
         window.location.reload();
     }
     

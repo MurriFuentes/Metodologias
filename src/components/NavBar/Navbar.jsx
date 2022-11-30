@@ -35,7 +35,6 @@ export default function Navbar() {
     }, [])
 
     useEffect(() => {
-
         if (localStorage.getItem('user') !== null){
             setNavOptions(navItems)
         }else{
