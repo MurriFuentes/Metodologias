@@ -23,13 +23,13 @@ function createData(name, members, newMessages, Alerts,) {
     Alerts,
     history: [
       {
-        date: '2022-11-30',
+        date: '2022-11-29',
         customerId: localStorage.getItem('user'),
         rol: 'ADMIN',
       },
       {
         date: '2022-11-30',
-        customerId: 'Juan@hotmail.com',
+        customerId: 'Juan Manuel Felix Rubio',
         rol: 'Miembro',
       },
     ],

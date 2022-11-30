@@ -37,6 +37,7 @@ export default function Login() {
             localStorage.setItem('userEmail', employee.email);
             localStorage.setItem('usertype', employee.usertype);
             localStorage.setItem('userGroups', JSON. stringify(employee.groups));
+            localStorage.setItem('userFriends', JSON. stringify(employee.friends));
             alert("Bienvenido " + localStorage.getItem("user"));
             window.location.href = "./";
         }

@@ -16,7 +16,7 @@ export const navItems = [
     {
         id: 3,
         title: "Amigos",
-        path: "/",
+        path: "/Amigos",
         cName: "nav-item",
         dName: "a",
     },
