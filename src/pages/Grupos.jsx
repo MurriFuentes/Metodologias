@@ -17,7 +17,7 @@ export default function Page_Groups() {
         if (localStorage.getItem('user') === null) {
             history.push("/");
         }
-    }, [history]);
+    }, [GroupList, history]);
 
 
     return (

@@ -4,11 +4,12 @@ export const usersData= [
         password: "123",
         email: "Felix@hotmail.com",
         date: "28/11/1998",
-        usertype: "USER",
+        usertype: "ADMIN",
         friends:[ 
             {
-                email: "Juan@hotmail.com"
-            }
+                name: "Juan Manuel Felix Rubio",
+                email: "Juan@hotmail.com",
+            },
         ],
         groups: [
             {
@@ -19,19 +20,40 @@ export const usersData= [
                 },
             }, 
         ],
+        notifications: [
+            {
+                type: "friendRequest",
+                data: {
+                    FromName: "Eva leticia romero",
+                    FromEmail: "Eva@hotmail.com",
+                },
+            }, 
+        ],
     },
     {
         name: "Juan Manuel Felix Rubio",
         password: "abc",
         email: "Juan@hotmail.com",
         date: "20/11/1988",
-        usertype: "ADMIN",
+        usertype: "USER",
         friends:[ 
-            {
-                email: "Felix@hotmail.com"
-            },
         ],
         groups: [
+        ],
+        notifications:[
+        ],
+    },
+    {
+        name: "Eva leticia romero",
+        password: "abc",
+        email: "Eva@hotmail.com",
+        date: "20/11/1978",
+        usertype: "USER",
+        friends:[
+        ],
+        groups: [
+        ],
+        notifications:[
         ],
     }
   ];

@@ -1,8 +1,7 @@
 import React, { useEffect} from "react";
 import {Link} from "react-router-dom";
-import CollapsibleTable from "../components/Tabla_Grupos/Group_Table";
 import { useHistory } from "react-router-dom";
-import DataTable from "../components/Tabla_Amigos/Friends_Table";
+import FriendsTable from "../components/Tabla_Amigos/Friends_Table";
 
 export default function Page_Friends() {
     var FriendList = JSON.parse(localStorage.getItem('userFriends'));
@@ -18,7 +17,7 @@ export default function Page_Friends() {
         if (localStorage.getItem('user') === null) {
             history.push("/");
         }
-    }, [history]);
+    }, [FriendList, history]);
 
 
     return (
@@ -32,7 +31,7 @@ export default function Page_Friends() {
                             </div>
                         </Link>
                     :
-                        <DataTable />
+                        <FriendsTable />
                 }
             </div>
         </>

@@ -10,7 +10,7 @@ export default function Login() {
    
     useEffect(() => {
         if (localStorage.getItem('newDataBase') === null){
-            localStorage.setItem('newDataBase', JSON. stringify(usersData));
+            localStorage.setItem('newDataBase', JSON.stringify(usersData));
         }else{
             console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newDataBase')));
         }
@@ -36,13 +36,11 @@ export default function Login() {
             localStorage.setItem('user', employee.name);
             localStorage.setItem('userEmail', employee.email);
             localStorage.setItem('usertype', employee.usertype);
-            localStorage.setItem('userGroups', JSON. stringify(employee.groups));
-            localStorage.setItem('userFriends', JSON. stringify(employee.friends));
+            localStorage.setItem('userGroups', JSON.stringify(employee.groups));
+            localStorage.setItem('userFriends', JSON.stringify(employee.friends));
             alert("Bienvenido " + localStorage.getItem("user"));
             window.location.href = "./";
         }
-        
-        
     }
 
     return (
@@ -50,7 +48,7 @@ export default function Login() {
             <h2>Identificate</h2>
             <form className="login-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Correo electronico</label>
-                <input required value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="tucorreo@gmail.com" id="email" name="email" />
+                <input required value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="tucorreo@gmail.com" id="email" name="email" />
                 <label htmlFor="password">Contraseña</label>
                 <input required value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
               

@@ -1,7 +1,7 @@
 .alturaMinima{
   text-align: center;
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   align-items: center;
   justify-content: center;
   color: white;
@@ -60,6 +60,6 @@ button {
 }
 
  .container-fluid {
-  width: 200%;
-  background-color: whitesmoke;
+  width: 90%;
+  margin: auto;
  }

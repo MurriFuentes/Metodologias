@@ -9,9 +9,12 @@ const initialState = {
         email: "",
         date: "29/11/2022",
         usertype: "USER",
-        friends: {
-        },
+        friends: [
+            
+        ],
         groups: [
+        ],
+        notifications:[
         ],
   };
 
@@ -22,7 +25,7 @@ export default function Register() {
 
     useEffect(() => {
         if (localStorage.getItem('newDataBase') === null){
-            localStorage.setItem('newDataBase', JSON. stringify(usersData));
+            localStorage.setItem('newDataBase', JSON.stringify(usersData));
         }else{
             console.log('Ya se inicializo la BD', JSON.parse(localStorage.getItem('newDataBase')));
         }
@@ -48,7 +51,7 @@ export default function Register() {
             if (consult === false ){
                 alert("REGISTRANDO");
                 newuser.push(formState);
-                localStorage.setItem('newDataBase', JSON. stringify(newuser));
+                localStorage.setItem('newDataBase', JSON.stringify(newuser));
                 setFormState(initialState);
             } else {
                 alert("El correo ya existe, ingrese otro correo porfavor.");
