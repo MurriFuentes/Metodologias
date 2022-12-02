@@ -22,8 +22,8 @@ export const navItems = [
     },
     {
         id: 4,
-        title: "Alertas",
-        path: "/",
+        title: "Notificaciones",
+        path: "/Notificaciones",
         cName: "nav-item",
         dName: "a",
     },

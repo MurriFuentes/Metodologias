@@ -63,3 +63,12 @@ button {
   width: 90%;
   margin: auto;
  }
+
+ .home {
+    max-width: auto;
+    height: 90vh;
+    background-image: url("/src/images/home.png");
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center
+ }

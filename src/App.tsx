@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Page_Groups from './pages/Grupos';
 import Page_Friends from './pages/Amigos';
+import Page_Notifications from './pages/Notificaciones';
 
 class App extends React.Component {
 
@@ -38,6 +39,7 @@ class App extends React.Component {
               <Route path="/SignUp" exact component={Register}></Route>
               <Route path="/Grupos" exact component={Page_Groups}></Route>
               <Route path="/Amigos" exact component={Page_Friends}></Route>
+              <Route path="/Notificaciones" exact component={Page_Notifications}></Route>
             </Switch>
           </div>
         </BrowserRouter>

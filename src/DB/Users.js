@@ -14,19 +14,20 @@ export const usersData= [
         groups: [
             {
                 name: "Familia",
-                members: {
-                    OwnerEmail: "Felix@hotmail.com",
-                    userEmail: "Juan@hotmail.com"
-                },
+                OwnerEmail: "Felix@hotmail.com",
+                serEmail: "Juan@hotmail.com"
+            },
+            {
+                name: "Secundaria",
+                OwnerEmail: "Juan@hotmail.com",
+                serEmail: "Felix@hotmail.com"
             }, 
         ],
         notifications: [
             {
-                type: "friendRequest",
-                data: {
-                    FromName: "Eva leticia romero",
-                    FromEmail: "Eva@hotmail.com",
-                },
+                type: "Solicitud de amistad",
+                FromName: "Eva leticia romero",
+                FromEmail: "Eva@hotmail.com",
             }, 
         ],
     },
@@ -39,6 +40,11 @@ export const usersData= [
         friends:[ 
         ],
         groups: [
+            {
+                name: "Secundaria",
+                OwnerEmail: "Juan@hotmail.com",
+                serEmail: "Felix@hotmail.com"
+            }
         ],
         notifications:[
         ],
@@ -54,6 +60,11 @@ export const usersData= [
         groups: [
         ],
         notifications:[
+            {
+                type: "Solicitud de amistad",
+                FromName: "Felix Armenta Guitirrez",
+                FromEmail: "Felix@hotmail.com",
+            }, 
         ],
     }
   ];

@@ -10,7 +10,6 @@ const initialState = {
         date: "29/11/2022",
         usertype: "USER",
         friends: [
-            
         ],
         groups: [
         ],

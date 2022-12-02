@@ -54,7 +54,7 @@ export default function Navbar() {
                     <>
                         <ul className="nav-items">
                             {navOptions.map((item) => (
-                                item.title === "Alertas"?
+                                item.title === "Admin"?
                                 <>
                                     <li 
                                         

@@ -7,6 +7,7 @@ import {
 import {Modal, TextField, Button} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: 'absolute',
@@ -41,24 +42,27 @@ const columns = [
   
 ];
 
-const data = JSON.parse(localStorage.getItem('userFriends'));
-
 export default function FriendsTable() {
+  
   const styles = useStyles();
   const notificationData = {
-    type: "friendRequest",
-    data: {
-      FromName: localStorage.getItem('user'),
-      FromEmail: localStorage.getItem('userEmail'),
-    },
+    type: "Solicitud de amistad",
+    FromName: localStorage.getItem('user'),
+    FromEmail: localStorage.getItem('userEmail'),
   }
   
   const [modalAgregar, setModalAgregar] = useState(false);
+  const [eliminarAmigo, setEliminarAmigo] = useState(false);
   var [agregarPorCorreo, setAgregarPorCorreo] = useState([""])
   const [dataBase, setDataBase] = useState(JSON.parse(localStorage.getItem('newDataBase')))
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('userFriends')));
 
   const abrirCerrarModalAgregar = () => {
     setModalAgregar(!modalAgregar);
+  }
+  
+  const abrirCerrarModalEliminarAmigo = () => {
+    setEliminarAmigo(!eliminarAmigo);
   }
 
   const enviarSolicitud = (e) => {
@@ -92,6 +96,14 @@ export default function FriendsTable() {
     }
   }
 
+  const EliminarAmigo = (e) => {
+    e.preventDefault();
+    const newData = data.filter(noti => noti.FromEmail !== localStorage.getItem("emailSelected"))
+    console.log(newData)
+    setData(newData)
+    abrirCerrarModalEliminarAmigo()
+  }
+
   const bodyAgregar =(
     <div className={styles.modal}>
       <h3>Agregar un amigo</h3>
@@ -100,6 +112,17 @@ export default function FriendsTable() {
       <div align='right'>
         <Button onClick={enviarSolicitud} color='primary'>Enviar Solicitud</Button>
         <Button onClick={abrirCerrarModalAgregar}>Cancelar</Button>
+      </div>
+    </div>
+  )
+
+  const bodyEliminarAmigo =(
+    <div className={styles.modal}>
+      <h3>Deseas eliminar a este amigo?</h3>
+      <br/>
+      <div align='right'>
+        <Button onClick={EliminarAmigo} color='primary'>Eliminar</Button>
+        <Button onClick={abrirCerrarModalEliminarAmigo}>Cancelar</Button>
       </div>
     </div>
   )
@@ -117,10 +140,7 @@ export default function FriendsTable() {
           {
             icon: () => <DeleteOutline/>,
             tooltip: 'Eliminar amigo',
-            onClick: (event, rowData) => {
-              const rowJson = JSON.stringify(rowData, null, 2);
-              alert(`Seguro que deseas eliminar a : ${rowJson}`);
-            },
+            onClick: (event, rowData) => abrirCerrarModalEliminarAmigo()
           },
         ]}
         components={{
@@ -147,6 +167,13 @@ export default function FriendsTable() {
       onClose={abrirCerrarModalAgregar}
       >
         {bodyAgregar}
+      </Modal>
+
+      <Modal
+      open={eliminarAmigo}
+      onClose={abrirCerrarModalEliminarAmigo}
+      >
+        {bodyEliminarAmigo}
       </Modal>
 
     </>

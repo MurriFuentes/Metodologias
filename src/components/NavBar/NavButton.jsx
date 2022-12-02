@@ -16,6 +16,7 @@ export default function NavButton() {
         localStorage.removeItem("userEmail")
         localStorage.removeItem("userGroups")
         localStorage.removeItem("userFriends")
+        localStorage.removeItem("userNotifications")
         window.location.href = "./"
         window.location.reload();
     }
